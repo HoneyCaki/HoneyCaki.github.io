@@ -4,11 +4,72 @@
   
     
     <entry>
+      <title>关于Hexo博客无法正常显示图片问题</title>
+      <link href="/2023/03/29/%E5%85%B3%E4%BA%8EHexo%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/"/>
+      <url>/2023/03/29/%E5%85%B3%E4%BA%8EHexo%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>本文参考：<a href="https://zhuanlan.zhihu.com/p/542101567">https://zhuanlan.zhihu.com/p/542101567</a> 进行步骤简化</p><hr><h1 id="使用npm安装-hexo-asset-image"><a href="#使用npm安装-hexo-asset-image" class="headerlink" title="使用npm安装 hexo-asset-image"></a>使用npm安装 hexo-asset-image</h1><p><code>npm install hexo-asset-image --save</code></p><h1 id="打开index-js"><a href="#打开index-js" class="headerlink" title="打开index.js"></a>打开index.js</h1><p>打开你的博客根目录，找到node_modules文件夹，再找到hexo-asset-image文件夹，直接打开目录下的index.js</p><p><img src="1.png" alt="1">   </p><h1 id="对代码进行修改"><a href="#对代码进行修改" class="headerlink" title="对代码进行修改"></a>对代码进行修改</h1><p>找到代码<strong>第58行</strong>看到类似的字眼$(this).attr，</p><p><img src="2.png" alt="2"></p><p><strong>直接</strong>将这行代码<strong>替换</strong>为以下代码：</p><p><code>$(this).attr(&#39;src&#39;, src);</code></p><p><img src="3.png" alt="3"></p><p>完事，<strong>记得保存。</strong></p><h1 id="修改根目录下的-config-yml文件"><a href="#修改根目录下的-config-yml文件" class="headerlink" title="修改根目录下的_config.yml文件"></a>修改根目录下的_config.yml文件</h1><p>回到你的博客根目录，找到 <strong>_config.yml</strong>文件并打开</p><p>按Ctrl+F键搜索关键词：<strong>post_asset_folder</strong></p><p>找到对应的值，把</p><p><code>post_asset_folder: false</code></p><p>改为</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span></span><br><span class="line"><span class="string">//把上面的false改为true↓</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>完事，保存。</p><hr><h1 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h1><p>将你要插入的图片，<strong>放入 ../你的博客根目录/source/_post/你的博客名称/</strong>    下，因为此时你每使用hexo new 一个新的md文档，它都会帮你生成一个新的文件夹且文件夹名称与你的md文档名称一样。如下图：</p><p><img src="5.png" alt="4"></p><p>而你要做的就是<strong><em><u>把你想放入的图片直接丢进那个文件夹就行了。</u></em></strong></p><p>然后可以直接在md文档里输入 </p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片描述</span>](<span class="link">你要显示的文件名字.png</span>)</span><br></pre></td></tr></table></figure><p>但是在文档中图片并不会显示并且会提示找不到路径，<strong>这种现象是正常的</strong>，不会影响博客图片显示，放心↓</p><p><img src="4.png" alt="5"></p><hr><p>然后直接来hexo三连即可</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>最后的效果：</p><p><img src="6.png" alt="6"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用VSQT遭遇乱码时的解决方案</title>
+      <link href="/2023/03/29/%E4%BD%BF%E7%94%A8VSQT%E9%81%AD%E9%81%87%E4%B9%B1%E7%A0%81%E6%97%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <url>/2023/03/29/%E4%BD%BF%E7%94%A8VSQT%E9%81%AD%E9%81%87%E4%B9%B1%E7%A0%81%E6%97%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      
+        <content type="html"><![CDATA[<h1 id="文件乱码"><a href="#文件乱码" class="headerlink" title="文件乱码"></a>文件乱码</h1><p>遇到这种情况，需要调整文件保存方案，将文件改为UTF-8带签名，具体操作如下：</p><ol><li><p>首先打开“<strong>工具</strong>”选项卡，再点击“<strong>自定义</strong>”<br><img src="1.png" alt="步骤1"></p></li><li><p>之后单击“<strong>命令</strong>”选项卡，再单击“<strong>添加命令</strong>”</p><p><img src="2.png" alt="步骤2"></p></li><li><p>下拉“<strong>类别</strong>”列表框，找到“<strong>文件</strong>”并选中<br><img src="3.png" alt="步骤3"></p></li><li><p>在右侧列表下滑找到“<strong>高级保存选项</strong>”并点击，然后再点击确定即可</p><p><img src="4.png" alt="步骤4"></p></li><li><p>此时会发现左上角出现了“高级保存选项”，但是是灰色，这时我们只需要点击一次需要更改保存格式的代码区域即可。<br><img src="5.png" alt="步骤5"></p></li><li><p>点击代码的任意区域后，会发现选项已经变亮，就可以开始进行设置，设置完成后，文件名称后会有星号，<strong>此时别忘记对文件进行Ctrl+S保存。</strong></p><p><img src="6.png" alt="步骤6"></p></li></ol><hr><h1 id="QT命令行和界面输出乱码"><a href="#QT命令行和界面输出乱码" class="headerlink" title="QT命令行和界面输出乱码"></a>QT命令行和界面输出乱码</h1><p>造成这种情况解决办法不唯一，但是可以一个一个试，总是可以试出来的，以下给出一些解决思路。</p><ol><li><p>添加以下预编译头（<strong>注意添加的位置，最好是在头文件内</strong>）</p><p>另外，该预编译头只支持VS环境，非VS环境无效。下面两个代码块可以任意选一个，一个不行试另一个。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> Q_OS_WIN</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> execution_character_set(<span class="string">&quot;utf-8&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> _MSC_VER &gt;= 1600</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> execution_character_set(<span class="string">&quot;utf-8&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure></li><li><p>使用QStringLiteral()函数</p><p>主要是对中文使用此函数，基本上能够解决乱码问题，缺点就是麻烦。</p><p>例：</p><p><code>QLabel* label = new QLabel(QStringLiteral(&quot;示例标签&quot;));</code></p></li></ol><ol><li><p>使用QTextCodec</p><p>不是特别推荐</p><p>例：</p><p><code>setIniCodec(QTextCodec::codecForName(&quot;GB2312&quot;));</code></p></li></ol><hr><h1 id="配置文件乱码"><a href="#配置文件乱码" class="headerlink" title="配置文件乱码"></a>配置文件乱码</h1><p>直接用QTextCodec设置为GB2312，也可以是设置为UTF-8。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.h</span></span><br><span class="line">QSettings* configIni; </span><br><span class="line"><span class="comment">//.CPP</span></span><br><span class="line">configIni = <span class="keyword">new</span> <span class="built_in">QSettings</span>(inifilePath,QSettings::IniFormat);</span><br><span class="line">configIni-&gt;<span class="built_in">setIniCodec</span>(QTextCodec::<span class="built_in">codecForName</span>(<span class="string">&quot;GB2312&quot;</span>));</span><br></pre></td></tr></table></figure><hr><p>造成乱码的原因有很多，需要根据自身情况去分析，编程时需要养成良好的编码习惯。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> QT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>推荐几个有关mtf的网站</title>
+      <link href="/2023/03/29/%E6%8E%A8%E8%8D%90%E5%87%A0%E4%B8%AA%E6%9C%89%E5%85%B3mtf%E7%9A%84%E7%BD%91%E7%AB%99/"/>
+      <url>/2023/03/29/%E6%8E%A8%E8%8D%90%E5%87%A0%E4%B8%AA%E6%9C%89%E5%85%B3mtf%E7%9A%84%E7%BD%91%E7%AB%99/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一些有用的网站-amp-介绍"><a href="#一些有用的网站-amp-介绍" class="headerlink" title="一些有用的网站 &amp; 介绍"></a>一些有用的网站 &amp; 介绍</h1><p>后面应该还会继续搜集，尽量会提供比较权威的网站给姐妹们</p><p><em>注意：不管任何时候，请保持绝对清醒的认知，切勿人云亦云。</em></p><hr><ol><li><p>MTF WIKI   -  <a href="https://mtf.wiki/zh-cn/">https://mtf.wiki/zh-cn/</a></p><ul><li>主要是以介绍和科普术前术后的知识为主，包括但不限于HRT资源、SRS资源、FFS资源和开证等。具体的可以去看看。但是根据一些姐妹的实际体验还有作者本人的实际体验，网站里有些数据是<strong>已经过时了的</strong>，没有及时更新，请姐妹们在依此做出任何决定前请再三向他人求证，以免造成<del>白给</del>的后果（<del>比如作者就因为这个导致开证时费用超出预算三倍</del>）</li></ul></li><li><p>2345跨性别导航  -  <a href="https://2345.lgbt/zh-cn/">https://2345.lgbt/zh-cn/</a></p><ul><li>收纳了很多跨性别网站的资源，网站可信度高不高作者不敢保证（毕竟也没有全部都看过一遍），里面也不仅仅包含了MTF的资源，也包含了FTM的资源。</li></ul></li><li><p>性别烦躁指南  -  <a href="https://genderdysphoria.fyi/zh/">https://genderdysphoria.fyi/zh/</a></p><ul><li>这个网站主要是以介绍性别烦躁为主，这对于想要了解性别烦躁的姐妹是一个很好的途径</li></ul></li><li><p>维基百科  -  <a href="https://zh.wikipedia.org/wiki/%E8%B7%A8%E6%80%A7%E5%88%A5">https://zh.wikipedia.org/wiki/%E8%B7%A8%E6%80%A7%E5%88%A5</a></p><ul><li><p><strong>需要魔法上网，需要魔法上网，需要魔法上网！</strong></p><p>维基百科可以说是目前介绍跨性别最客观最权威的了。</p></li></ul><hr><p><img src="transgender.png" alt="Transgender"></p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MTF </tag>
+            
+            <tag> 跨性别资料 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>这是一篇测试文档</title>
       <link href="/2023/03/28/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/"/>
       <url>/2023/03/28/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/</url>
       
-        <content type="html"><![CDATA[<h1 id="我是超级大猫"><a href="#我是超级大猫" class="headerlink" title="我是超级大猫"></a>我是超级大猫</h1><h2 id="我是超级小猫"><a href="#我是超级小猫" class="headerlink" title="我是超级小猫"></a>我是超级小猫</h2><h3 id="我是中猫"><a href="#我是中猫" class="headerlink" title="我是中猫"></a>我是中猫</h3><h4 id="我是小猫"><a href="#我是小猫" class="headerlink" title="我是小猫"></a>我是小猫</h4><h5 id="我是超级小猫-1"><a href="#我是超级小猫-1" class="headerlink" title="我是超级小猫"></a>我是超级小猫</h5><h6 id="我是单细胞猫"><a href="#我是单细胞猫" class="headerlink" title="我是单细胞猫"></a>我是单细胞猫</h6><p><strong>我是粗猫</strong><br><em>我是斜猫</em><br><strong><em>我是粗斜猫</em></strong></p><hr><p><del>我是傻猫</del></p><p><u>我是下划线猫<u></p><ul><li>我是第1只猫</li></ul><ol><li>我还是第一只猫<ul><li>我是奶猫</li><li>我还是奶猫</li></ul></li><li>我是第二只猫<ul><li>我还是奶猫</li></ul></li></ol><p>‘’’<br>    std::cout&lt;&lt;”我是代码猫”&lt;&lt;std::endl;<br>‘’’</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="我是超级大猫"><a href="#我是超级大猫" class="headerlink" title="我是超级大猫"></a>我是超级大猫</h1><h2 id="我是超级小猫"><a href="#我是超级小猫" class="headerlink" title="我是超级小猫"></a>我是超级小猫</h2><h3 id="我是中猫"><a href="#我是中猫" class="headerlink" title="我是中猫"></a>我是中猫</h3><h4 id="我是小猫"><a href="#我是小猫" class="headerlink" title="我是小猫"></a>我是小猫</h4><h5 id="我是超级小猫-1"><a href="#我是超级小猫-1" class="headerlink" title="我是超级小猫"></a>我是超级小猫</h5><h6 id="我是单细胞猫"><a href="#我是单细胞猫" class="headerlink" title="我是单细胞猫"></a>我是单细胞猫</h6><p><strong>我是粗猫</strong><br><em>我是斜猫</em><br><strong><em>我是粗斜猫</em></strong></p><hr><p><del>我是傻猫</del></p><p><u>我是下划线猫<u></u></u></p><ul><li>我是第1只猫</li></ul><ol><li>我还是第一只猫<ul><li>我是奶猫</li><li>我还是奶猫</li></ul></li><li>我是第二只猫<ul><li>我还是奶猫</li></ul></li></ol><p>‘’’<br>    std::cout&lt;&lt;”我是代码猫”&lt;&lt;std::endl;<br>‘’’</p>]]></content>
       
       
       
