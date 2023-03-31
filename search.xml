@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>破除CSDN的“关注博主即可浏览全文”</title>
+      <link href="/2023/03/31/%E7%A0%B4%E9%99%A4CSDN%E7%9A%84%E2%80%9C%E5%85%B3%E6%B3%A8%E5%8D%9A%E4%B8%BB%E5%8D%B3%E5%8F%AF%E6%B5%8F%E8%A7%88%E5%85%A8%E6%96%87%E2%80%9D/"/>
+      <url>/2023/03/31/%E7%A0%B4%E9%99%A4CSDN%E7%9A%84%E2%80%9C%E5%85%B3%E6%B3%A8%E5%8D%9A%E4%B8%BB%E5%8D%B3%E5%8F%AF%E6%B5%8F%E8%A7%88%E5%85%A8%E6%96%87%E2%80%9D/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="关于CSDN必须关注博主才能浏览全文的解决方案"><a href="#关于CSDN必须关注博主才能浏览全文的解决方案" class="headerlink" title="关于CSDN必须关注博主才能浏览全文的解决方案"></a>关于CSDN必须关注博主才能浏览全文的解决方案</h1><p><img src="1.png" alt="如图所示"></p><p>直接用几段js粘贴回车在浏览器开发者工具的控制台里。</p><p>代码如下，直接复制：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var article_content=document.getElementById(<span class="string">&quot;article_content&quot;</span>);</span><br><span class="line">article_content.removeAttribute(<span class="string">&quot;style&quot;</span>);</span><br><span class="line"></span><br><span class="line">var follow_text=document.getElementsByClassName(&#x27;follow-text&#x27;)<span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span>;</span><br><span class="line">follow_text.parentElement.parentElement.removeChild(follow_text.parentElement);</span><br><span class="line"></span><br><span class="line">var hide_article_box=document.getElementsByClassName(&#x27; hide-article-box&#x27;)<span class="punctuation">[</span><span class="number">0</span><span class="punctuation">]</span>;</span><br><span class="line">hide_article_box.parentElement.removeChild(hide_article_box);</span><br></pre></td></tr></table></figure><h2 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一"></a>步骤一</h2><p>先按F12打开开发者模式，点击控制台</p><p><img src="2.png" alt="2"></p><h2 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二"></a>步骤二</h2><p>再粘贴代码到 “<strong>&gt;</strong>”小箭头处，直接回车</p><p><img src="3.png" alt="3"></p><h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>回车后即可看到效果</p><p><img src="4.png" alt="4"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 小技巧 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于Hexo博客无法正常显示图片问题</title>
       <link href="/2023/03/29/%E5%85%B3%E4%BA%8EHexo%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/"/>
       <url>/2023/03/29/%E5%85%B3%E4%BA%8EHexo%E5%8D%9A%E5%AE%A2%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/</url>
