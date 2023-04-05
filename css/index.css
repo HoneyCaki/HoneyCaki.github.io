@@ -1655,7 +1655,7 @@ figure.highlight pre .javascript .function {
 #article-container pre,
 #article-container code {
   font-size: 17px;
-  font-family: consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
+  font-family: Monaco !important;
 }
 #article-container code {
   padding: 2px 4px;
@@ -3849,8 +3849,8 @@ h1.page-title + .tag-cloud-list {
 #article-container.post-content h6:before {
   position: absolute;
   top: calc(50% - 7px);
-  color: #f47466;
-  content: '\f0c1';
+  color: #ffaec9;
+  content: '\01F365';
   line-height: 1;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;

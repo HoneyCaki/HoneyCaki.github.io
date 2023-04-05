@@ -3,6 +3,22 @@
     font-display: swap;
     src: url('./MaoKenZhuYuanTi.ttf') format("truetype");
   }
+
+@font-face {
+    font-family: 'Monaco';
+    font-display: swap;
+    src: url('./Monaco.ttf') format("truetype");
+}
+
+/*滑到顶部的导航栏*/
+#page-header.not-top-img #nav a, #page-header.not-top-img #nav .site-name{
+    color:#ff9cca;
+    font-size: 20px;
+}
+
+#nav .site-name{
+    color:#ff9cca;
+}
 /*全页背景*/
 #body-wrap{
 
@@ -80,6 +96,11 @@
     transition: all 0.5s cubic-bezier(0.27, 0.36, 0.38, 0.94);
 }
 
+/*侧边栏宽*/
+#aside-content .card-widget{
+    width: 140%;
+}
+
 /*侧边栏按钮*/
 #aside-content .card-info #card-info-btn{
     border-radius: 40px;
@@ -150,22 +171,44 @@ div#menus{
     flex:1 1 auto;
     margin-left: auto;
     display: flex;
-    flex-wrap:nowrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
 #he-plugin-simple[data-v-41ba7e2c]{
     font-family: MKZYT;
 }
+
+/*滚动条*/
+*::-webkit-scrollbar{
+    width: 10px;
+}
+*::-webkit-scrollbar-thumb{
+    background: linear-gradient(-180deg, #ff9cca85 0%,#ffffff8a 50%, #55a7ff88 100%);
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+@media screen and (min-width: 900px){
+    #aside-content {
+        margin-left: 40px;
+    }
+}
+
+
+
 /*导航项目与搜索按钮分开*/
 #nav .menus_items{
     padding-left: 20px;
     font-size: 18px;
+    padding-top: 4px;
 }
+
 #page-header.nav-fixed #nav a, #page-header.nav-fixed #nav #toggle-menu{
     color:#ff9cca;
 }
-#nav a{
-    color:#ff9cca;
-}
+
 #nav.show{
     border-radius: 25px;
     margin: 25px;
@@ -185,12 +228,24 @@ div#menus{
 #nav .site-page:not(.child):after{
     background-color: #ff9cca;
     transition: all 0.5s cubic-bezier(1, 0.01, 0.13, 1.02);
+    font-size: 56px;
 }
 /*导航栏项目样式*/
 #nav .site-page:not(.child):after:hover{
     background-color: #00a6ff;
     transition: all 0.5s cubic-bezier(1, 0.01, 0.13, 1.02);
 }
+
+#nav .site-page{
+    font-size: 20px;
+    color:#ff9cca;
+}
+
+#nav .site-page:hover{
+    color:#00a6ff;
+}
+
+
 
 /*导航栏永驻*/
 .nav-fixed #nav{
