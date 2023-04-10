@@ -245,7 +245,10 @@ div#menus{
     color:#00a6ff;
 }
 
-
+/*评论系统样式*/
+.publisher-anchor-color a{
+    color:#ff9cca !important;
+}
 
 /*导航栏永驻*/
 .nav-fixed #nav{
