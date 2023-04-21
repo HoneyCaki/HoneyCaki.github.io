@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>如何开始OpenGL学习</title>
+      <link href="/2023/04/21/%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8BOpenGL%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2023/04/21/%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8BOpenGL%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可能需要知识：高等数学、初等数学、图形学、基本计算机知识、熟悉的一门语言等等</p><p><strong>本文主要以C++ / OpenGL开发为主</strong></p><hr><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>默认读者有一定的编程能力，选择自己的编译器，这里以Visual Studio 2019 IDE做示范。</p><p>我们需要 <strong>GLFW</strong> 和 <strong>GLAD</strong>这两个库就可以运行一个最基本的程序，当然，我们后续还会引进更多的包</p><h4 id="环境下载"><a href="#环境下载" class="headerlink" title="环境下载"></a>环境下载</h4><p>GLFW下载地址：<a href="https://www.glfw.org/download.html">https://www.glfw.org/download.html</a></p><p>GLAD下载地址：<a href="https://glad.dav1d.de/">https://glad.dav1d.de/</a></p><hr><p>GLFW官网点开后会看到如下界面</p><p><img src="3.png" alt="GLFW官网"></p><p>请下载<strong>pre-compiled bin</strong>的包，当然，如果你想让它在编译时使其更适合你的硬件配置，你也可以直接下载Source源码自己进行编译，请采用CMake工具编译。</p><hr><p>GLAD官网打开后你可能会有点迷茫，但是跟着步骤就不会出大问题</p><p>首先打开后把Language选择C++（或者是你使用的语言）</p><p>然后再选择API GL版本为3.3或以上（如果你有特殊需求也可以自己决定）</p><p><img src="4.png" alt="选择gl版本"></p><p>之后选择Profile为Core</p><p><img src="5.png" alt="Profile"></p><p>然后再确保这一项必须勾选，好了，其他不要动，直接点右下角的Generate</p><p><img src="6.png" alt="项目"></p><p>接下来下载.zip文件即可（zip文件是对上面两文件夹的打包）</p><p><img src="7.png" alt="下载"></p><hr><p>现在我们都把必须的东西下载好了，我们需要对其进行整合，如下图</p><p>你只需要重点关注 include 和 lib-vcXXXX  文件夹，include文件夹包含了glfw，glad所需的库，后面我们还会引入更多的库，你都可以直接丢进去，而lib链接库我们通常不用管它<em>（<del>但是每次出错很有可能就是它搞的鬼</del>）</em></p><p><img src="1.png" alt="文件夹结构"></p><p>现在打开include文件，我们看到</p><p><img src="8.png" alt="文件结构"></p><p>请暂时忽略掉glm和KHR，以后才会用上，我们现在主要使用glfw和glad</p><p>那么进入环境配置步骤</p><hr><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>打开Visual Studio 2019 IDE ，和往常一样新建工程，建项目后，</p><p>1、右键点击左边的<strong>解决方案项目</strong>，并在列表中选择“<strong>属性</strong>”</p><p><img src="9.png" alt="1"></p><p>2、左侧的列表框选择“<strong>VC++目录</strong>”，此时你会看到“<strong>库目录</strong>”，“<strong>包含目录</strong>”</p><p>请将你整理好的opengl的<strong>lib文件夹</strong>和<strong>include文件夹</strong>的路径分别填入“<strong>库目录</strong>”和“<strong>包含目录</strong>”</p><p><img src="10.png" alt="2"></p><p><img src="11.png" alt="3"></p><p><strong>只需要包含include文件夹就行，不要画蛇添足！</strong></p><p><strong>TIP：记住不要把C++基本包含文件给覆盖掉了！</strong></p><ol><li><p>还有最后一步，添加<strong>附加依赖项</strong>，否则会出错！还是刚刚那个属性页，点击“<strong>链接器</strong>”，再点击“<strong>输入</strong>”，右边的附加依赖项添加一项为 :</p><p><strong>glfw3.lib</strong> </p><p>如果编译器报错，就改为</p><p><strong>glfw3_mt.lib</strong></p><p><img src="12.png" alt="4">;</p><p><img src="13.png" alt="5">;</p></li></ol><p>至此，环境配置方面全部完成。你可以开始学习OPENGL了！<del>（以后可能会补充 咕咕咕）</del></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> OpenGL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于配置OpenGL开发环境时遇到的问题</title>
       <link href="/2023/04/20/%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AEOpenGL%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
       <url>/2023/04/20/%E5%85%B3%E4%BA%8E%E9%85%8D%E7%BD%AEOpenGL%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
