@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>Bullet物理引擎环境配置</title>
+      <link href="/2023/04/24/Bullet%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <url>/2023/04/24/Bullet%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、添加附加依赖项"><a href="#一、添加附加依赖项" class="headerlink" title="一、添加附加依赖项"></a>一、添加附加依赖项</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">..\..\lib\BulletDynamics<span class="emphasis">_vs2010_</span>debug.lib</span><br><span class="line">..\..\lib\BulletCollision<span class="emphasis">_vs2010_</span>debug.lib</span><br><span class="line">..\..\lib\LinearMath<span class="emphasis">_vs2010_</span>debug.lib</span><br></pre></td></tr></table></figure><p>位于：&lt;<strong>项目属性页</strong>&gt; —— &lt;<strong>链接器</strong>&gt; —— &lt;<strong>输入</strong>&gt; —— &lt;<strong>附加依赖项</strong>&gt;</p><h1 id="二、添加附加包含目录"><a href="#二、添加附加包含目录" class="headerlink" title="二、添加附加包含目录"></a>二、添加附加包含目录</h1><p>打开你下载的Bullet的目录，里面会有src文件夹，添加src文件夹的绝对路径即可，大概长这样：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X:\..\Bullet\src</span><br></pre></td></tr></table></figure><p>位于：&lt;<strong>项目属性页</strong>&gt; —— &lt;<strong>C/C++</strong>&gt; —— &lt;<strong>常规</strong>&gt; —— &lt;<strong>附加包含目录</strong>&gt; 添加你的src文件所在路径即可</p><h1 id="三、调试设置"><a href="#三、调试设置" class="headerlink" title="三、调试设置"></a>三、调试设置</h1><p>位于：&lt;<strong>项目属性页</strong>&gt; —— &lt;<strong>C/C++</strong>&gt; —— &lt;<strong>代码生成</strong>&gt; ——  &lt;<strong>运行库</strong>&gt;</p><p>将 <strong>运行库 </strong>改为 <strong>多线程调试（/MTd）</strong></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> OpenGL </tag>
+            
+            <tag> C++ </tag>
+            
+            <tag> Bullet </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何开始OpenGL学习</title>
       <link href="/2023/04/21/%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8BOpenGL%E5%AD%A6%E4%B9%A0/"/>
       <url>/2023/04/21/%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8BOpenGL%E5%AD%A6%E4%B9%A0/</url>
@@ -14,9 +37,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> OpenGL </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -35,9 +58,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> OpenGL </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
