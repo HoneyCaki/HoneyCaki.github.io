@@ -107,27 +107,6 @@
     </entry>
     
     
-    
-    <entry>
-      <title>使用VSQT遭遇乱码时的解决方案</title>
-      <link href="/2023/03/29/%E4%BD%BF%E7%94%A8VSQT%E9%81%AD%E9%81%87%E4%B9%B1%E7%A0%81%E6%97%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-      <url>/2023/03/29/%E4%BD%BF%E7%94%A8VSQT%E9%81%AD%E9%81%87%E4%B9%B1%E7%A0%81%E6%97%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-      
-        <content type="html"><![CDATA[<h1 id="文件乱码"><a href="#文件乱码" class="headerlink" title="文件乱码"></a>文件乱码</h1><p>遇到这种情况，需要调整文件保存方案，将文件改为UTF-8带签名，具体操作如下：</p><ol><li><p>首先打开“<strong>工具</strong>”选项卡，再点击“<strong>自定义</strong>”<br><img src="1.png" alt="步骤1"></p></li><li><p>之后单击“<strong>命令</strong>”选项卡，再单击“<strong>添加命令</strong>”</p><p><img src="2.png" alt="步骤2"></p></li><li><p>下拉“<strong>类别</strong>”列表框，找到“<strong>文件</strong>”并选中<br><img src="3.png" alt="步骤3"></p></li><li><p>在右侧列表下滑找到“<strong>高级保存选项</strong>”并点击，然后再点击确定即可</p><p><img src="4.png" alt="步骤4"></p></li><li><p>此时会发现左上角出现了“高级保存选项”，但是是灰色，这时我们只需要点击一次需要更改保存格式的代码区域即可。<br><img src="5.png" alt="步骤5"></p></li><li><p>点击代码的任意区域后，会发现选项已经变亮，就可以开始进行设置，设置完成后，文件名称后会有星号，<strong>此时别忘记对文件进行Ctrl+S保存。</strong></p><p><img src="6.png" alt="步骤6"></p></li></ol><hr><h1 id="QT命令行和界面输出乱码"><a href="#QT命令行和界面输出乱码" class="headerlink" title="QT命令行和界面输出乱码"></a>QT命令行和界面输出乱码</h1><p>造成这种情况解决办法不唯一，但是可以一个一个试，总是可以试出来的，以下给出一些解决思路。</p><ol><li><p>添加以下预编译头（<strong>注意添加的位置，最好是在头文件内</strong>）</p><p>另外，该预编译头只支持VS环境，非VS环境无效。下面两个代码块可以任意选一个，一个不行试另一个。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> Q_OS_WIN</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> execution_character_set(<span class="string">&quot;utf-8&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">if</span> _MSC_VER &gt;= 1600</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> execution_character_set(<span class="string">&quot;utf-8&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure></li><li><p>使用QStringLiteral()函数</p><p>主要是对中文使用此函数，基本上能够解决乱码问题，缺点就是麻烦。</p><p>例：</p><p><code>QLabel* label = new QLabel(QStringLiteral(&quot;示例标签&quot;));</code></p></li></ol><ol><li><p>使用QTextCodec</p><p>不是特别推荐</p><p>例：</p><p><code>setIniCodec(QTextCodec::codecForName(&quot;GB2312&quot;));</code></p></li></ol><hr><h1 id="配置文件乱码"><a href="#配置文件乱码" class="headerlink" title="配置文件乱码"></a>配置文件乱码</h1><p>直接用QTextCodec设置为GB2312，也可以是设置为UTF-8。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.h</span></span><br><span class="line">QSettings* configIni; </span><br><span class="line"><span class="comment">//.CPP</span></span><br><span class="line">configIni = <span class="keyword">new</span> <span class="built_in">QSettings</span>(inifilePath,QSettings::IniFormat);</span><br><span class="line">configIni-&gt;<span class="built_in">setIniCodec</span>(QTextCodec::<span class="built_in">codecForName</span>(<span class="string">&quot;GB2312&quot;</span>));</span><br></pre></td></tr></table></figure><hr><p>造成乱码的原因有很多，需要根据自身情况去分析，编程时需要养成良好的编码习惯。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> C++ </tag>
-            
-            <tag> QT </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
   
   
 </search>
