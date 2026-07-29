@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>插件推荐——vscode+markdown 快速插入图片</title>
+      <link href="/2026/07/29/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/"/>
+      <url>/2026/07/29/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Markdown-Image-插件"><a href="#Markdown-Image-插件" class="headerlink" title="Markdown Image 插件"></a>Markdown Image 插件</h1><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>有时候写Markdown插入图片时，通常都是直接复制粘贴过来，但是复制粘贴过来的图片，往往都会被默认放到与Markdown文件同目录下，如果想要规范性地放图片，那就很麻烦了。</p><p><strong>所以这个插件就是解决了这个问题。</strong></p><hr><h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>打开vscode，在左侧栏打开扩展，然后搜索：<code>Markdown Image</code>，作者 <code>Hancel Lin</code>。</p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785341019318.png" alt="图 0">  </p><p>下载好了以后，点开它的设置，就有很多的设置项，有中文版。</p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785341113986.png" alt="图 1">  </p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785341127986.png" alt="图 2">  </p><p>可以根据自己的需要去设置，这里仅展示我的目标用法。</p><hr><h2 id="三、目标"><a href="#三、目标" class="headerlink" title="三、目标"></a>三、目标</h2><ul><li>快捷键设置为 <code>Ctrl+Shift+V</code> 触发</li><li>实现按下快捷键后，图片自动被放在与当前 Markdown 文件同名的文件夹下，且该文件夹与Markdown文件在同一个目录下</li><li>命名方式为：<code>&lt;markdown文件名&gt;-&lt;时间戳&gt;.png</code></li><li>图片自动标注：图 1 ，图 2，图 3…</li><li>存放图片的文件夹不存在则自动创建</li></ul><hr><h2 id="四、实践"><a href="#四、实践" class="headerlink" title="四、实践"></a>四、实践</h2><h3 id="1、键位更改"><a href="#1、键位更改" class="headerlink" title="1、键位更改"></a>1、键位更改</h3><p>先直接按 <code>Ctrl+Shift+P</code> 组合键，呼出命令面板，输入Key，然后打开 <code>首选项：打开键盘快捷方式</code></p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785341521800.png" alt="图 3">  </p><p>进去后，搜索 <code>Markdown Image</code> 找到粘贴图片的选项</p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785341595372.png" alt="图 4">  </p><p>然后对键绑定双击一下，会弹出一个更改快捷键提示框，根据提示更改即可。</p><h3 id="2、粘贴事件"><a href="#2、粘贴事件" class="headerlink" title="2、粘贴事件"></a>2、粘贴事件</h3><p>直接按 <code>Ctrl+Shift+P</code> 组合键，输入<code>settings</code>，点击打开用户设置。</p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785341832179.png" alt="图 6">  </p><p>在打开的JSON文件，滑动到最底部，然后在最后一个花括号 <code>&#125;</code> 之前，加入以下内容：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;markdown-image.local.path&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;markdown-image.base.fileNameFormat&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;mdname&#125;/$&#123;mdname&#125;-$&#123;timestamp&#125;&quot;</span></span><br></pre></td></tr></table></figure><p>如图所示，注意最后的花括号的位置，还有前边的条目最后那里如果没有逗号，需要加上：</p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785341973259.png" alt="图 7">  </p><h3 id="3、完成"><a href="#3、完成" class="headerlink" title="3、完成"></a>3、完成</h3><p>Ctrl+S 保存好配置以后，随意复制一张图片，回到markdown里面按你设定的快捷键，这里以刚刚的 <code>Ctrl+Shift+V</code> 为例，粘贴后会出现：</p><p><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785342255927.png" alt="图 8">  </p><p>这样是正常的，别看像乱码，你可以打开你的markdown文件所在位置，看是不是多了一个文件夹，并且里面存放了你刚刚截图上传markdown的图片。<br><img src="%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90%E2%80%94%E2%80%94vscode-markdown-%E5%BF%AB%E9%80%9F%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87-1785342311019.png" alt="图 9">  </p><p><strong>到这一步就成功了。</strong></p><hr><h2 id="五、注意事项"><a href="#五、注意事项" class="headerlink" title="五、注意事项"></a>五、注意事项</h2><p><strong>不要试着自己用Ctrl+V来当快捷键，虽然这不影响插件的功能，但是会影响你粘贴正常的文本内容，这也是为什么笔者这里使用 <code>Ctrl+Shift+V</code> 的方案</strong></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vscode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CPP中volatile关键字介绍</title>
       <link href="/2023/07/29/CPP%E4%B8%ADvolatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%BB%8B%E7%BB%8D/"/>
       <url>/2023/07/29/CPP%E4%B8%ADvolatile%E5%85%B3%E9%94%AE%E5%AD%97%E4%BB%8B%E7%BB%8D/</url>
